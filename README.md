@@ -1,6 +1,11 @@
 # sunshine-kde-auto-display
-A set of scripts I use to make [Sunshine](https://github.com/LizardByte/Sunshine) automatically switch display resolution when streaming starts. Needs a dummy display plug to work.
-These scripts are meant to be used on [kde-plasma](https://kde.org/plasma-desktop/). I am personally using [fedora 43](http://fedoraproject.org/).
+This repo contains a set of scripts I use to make [Sunshine](https://github.com/LizardByte/Sunshine) automatically switch display resolution when streaming starts, matching the client's display settings.
+
+## Requirements
+
+- A dummy display plug is necessary. I use [this one](https://www.amazon.com.be/-/en/dp/B07C8C3364).
+- [KDE-plasma](https://kde.org/plasma-desktop/) as desktop environment. I am personally using [fedora 43](http://fedoraproject.org/).
+- Of course, [Sunshine](https://github.com/LizardByte/Sunshine) properly installed and running.
 
 ## Usage
 1) clone the repo wherever you want and set permissions. Here I am cloning it in the `~/.local/bin` directory.
@@ -86,10 +91,6 @@ DUMMY_OUT="DP-2"
 9) Point the `Undo Command` to the `sunshine-undo.sh` script. 
 10) Hit `Save`. 
 
-Now whenever that application is launched on Sunshine the `sunshine-do.sh` script will run. When the application is closed, the `sunshine-undo.sh` runs instead. 
+Now whenever that application is launched on Sunshine the `sunshine-do.sh` script will run. When the application is closed, the `sunshine-undo.sh` runs instead.
 
-
-The `sunshine-do.sh` script should be called when streaming starts (`Do` command), while `sunshine-undo.sh` should be called when streaming ends (`Undo` command). 
-
-
-
+OBS: The resolution will only change if your dummy display plug supports it!
