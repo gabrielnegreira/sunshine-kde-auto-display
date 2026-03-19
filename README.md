@@ -1,6 +1,11 @@
 # sunshine-kde-auto-display
 This repo contains a set of scripts I use to make [Sunshine](https://github.com/LizardByte/Sunshine) automatically switch display resolution when streaming starts, matching the client's display settings.
 
+## Scripts
+- `sunshine-do.sh`: Disables main display, enables dummy display, sets it to client resolution (if available) and fps (if available).
+- `sunshine-undo.sh`: Disables dummy display, enables back the main display. 
+- `sunshine-second-display.sh`: Enables the dummy display while keeping the main display enabled. This allow the client to work as a second screen.
+
 ## Requirements
 
 - A dummy display plug is necessary. I use [this one](https://www.amazon.com.be/-/en/dp/B07C8C3364).
@@ -80,7 +85,7 @@ Output: 2 DP-4 79c8e690-4dd4-49e8-ab27-c2bb467aef49
 ```
 Since the dummy display is disabled, we can know for sure that `Output 2` is my main display, with name `DP-4`, while `Output 1` (`DP-2`) is the disabled dummy display.
 
-5) Edit both the `sunshine-do.sh` and the `sunshine-undo.sh` scripts to have the `MAIN_OUT` and `DUMMY_OUT` variables match your display names:
+5) Edit the `sunshine-do.sh`, the `sunshine-undo.sh`, and the `sunshine-second-display.sh`  scripts to have the `MAIN_OUT` and `DUMMY_OUT` variables match your display names:
 ```sh
 MAIN_OUT="DP-4"
 DUMMY_OUT="DP-2"
@@ -94,3 +99,13 @@ DUMMY_OUT="DP-2"
 Now whenever that application is launched on Sunshine the `sunshine-do.sh` script will run. When the application is closed, the `sunshine-undo.sh` runs instead.
 
 OBS: The resolution will only change if your dummy display plug supports it!
+
+To use the client as a second display:
+1) Navigate to the Sunshine configuration page (https://localhost:47990/) and go to `Applications`.
+2) Create a new application named "Second display" (or whatever you prefer).
+3) Set the `sunshine-second-display.sh` script as the `Do Command`. 
+4) Set the `sunshine-undo.sh` script as the `Undo Command`. 
+5) Hit `Save`.
+
+Now when the client launches the `Second display` application, the dummy display will be streamed to the client while the main display continues enabled. This way you can have a dual monitor setup!
+
