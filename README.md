@@ -1,5 +1,5 @@
 # sunshine-kde-auto-display
-A set of scripts I use to make sunshine automatically switch display resolution when streaming starts. Needs a dummy display plug to work.
+A set of scripts I use to make [Sunshine](https://github.com/LizardByte/Sunshine) automatically switch display resolution when streaming starts. Needs a dummy display plug to work.
 These scripts are meant to be used on [kde-plasma](https://kde.org/plasma-desktop/). I am personally using [fedora 43](http://fedoraproject.org/).
 
 ## Usage
@@ -74,6 +74,7 @@ Output: 2 DP-4 79c8e690-4dd4-49e8-ab27-c2bb467aef49
         Automatic brightness: unsupported
 ```
 Since the dummy display is disabled, we can know for sure that `Output 2` is my main display, with name `DP-4`, while `Output 1` (`DP-2`) is the disabled dummy display.
+
 5) Edit both the `sunshine-do.sh` and the `sunshine-undo.sh` scripts to have the `MAIN_OUT` and `DUMMY_OUT` variables match your display names:
 ```sh
 MAIN_OUT="DP-4"
